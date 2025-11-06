@@ -1,0 +1,24 @@
+bool isBST(Node* root, int minVal, int maxVal) {
+    // Base case
+    if (root == NULL) {
+        return true;
+    }
+
+    // Check current node's data against its range
+    if (root->data >= minVal && root->data <= maxVal) {
+        // Recursive calls for left and right subtrees
+        bool left = isBST(root->left, minVal, root->data);
+        bool right = isBST(root->right, root->data, maxVal);
+
+        // If both left and right subtrees are valid
+        return left && right;
+    } else {
+        // Current node's data is out of range
+        return false;
+    }
+}
+
+// Initial call (e.g., from main function)
+// int min_val = INT_MIN; (or a very small number)
+// int max_val = INT_MAX; (or a very large number)
+// bool result = isBST(root, min_val, max_val);
