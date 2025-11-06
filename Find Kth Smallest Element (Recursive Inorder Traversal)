@@ -1,0 +1,32 @@
+// Global/member variable to store answer
+// int ans = -1; 
+
+// Function signature
+void solve(Node* root, int &i, int k, int &ans) { // 'ans' should be passed by reference
+    // Base case
+    if (root == NULL) {
+        return;
+    }
+
+    // L: Go to left subtree
+    solve(root->left, i, k, ans);
+
+    // N: Process current node
+    i++; // Increment count
+    if (i == k) {
+        ans = root->data; // Found kth smallest
+        return; // Can stop early
+    }
+
+    // R: Go to right subtree
+    solve(root->right, i, k, ans);
+}
+
+// Initial call
+// int i = 0; // Counter for inorder traversal
+// int k = 3; // Example: find 3rd smallest
+// int result_ans = -1; // Variable to store the answer
+// solve(root, i, k, result_ans);
+// cout << result_ans;
+
+//Use Morris traversal for optimized space complexity- O(1)
