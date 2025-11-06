@@ -1,0 +1,38 @@
+// Assuming 'key' is the value for which predecessor/successor are needed
+// Node* temp = root;
+// int predecessor = -1;
+// int successor = -1;
+
+// Step 1: Find the key node and potential predecessor/successor during traversal
+// while (temp != NULL) {
+//     if (temp->data == key) {
+//         // Key found, break or handle special case if needed
+//         break;
+//     } else if (temp->data > key) {
+//         successor = temp->data; // Current node could be a successor
+//         temp = temp->left;
+//     } else { // temp->data < key
+//         predecessor = temp->data; // Current node could be a predecessor
+//         temp = temp->right;
+//     }
+// }
+
+// Step 2: Find actual predecessor (maximum in left subtree of found key)
+// if (temp && temp->left != NULL) { // If key found and has a left child
+//     Node* leftTree = temp->left;
+//     while (leftTree->right != NULL) {
+//         leftTree = leftTree->right;
+//     }
+//     predecessor = leftTree->data;
+// }
+
+// Step 3: Find actual successor (minimum in right subtree of found key)
+// if (temp && temp->right != NULL) { // If key found and has a right child
+//     Node* rightTree = temp->right;
+//     while (rightTree->left != NULL) {
+//         rightTree = rightTree->left;
+//     }
+//     successor = rightTree->data;
+// }
+
+// Return pair(predecessor, successor);
